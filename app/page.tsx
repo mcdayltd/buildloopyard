@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Sample listings (we'll connect to Supabase next for real data)
+  // Sample listings (connect to Supabase later for real user data)
   const sampleListings = [
     {
       id: 1,
@@ -59,7 +59,7 @@ export default function Home() {
             </button>
           </div>
           {/* Trust Badges / Rankings */}
-          <div className="mt-8 flex justify-center space-x-8 text-sm bg-green-50 p-4 rounded-lg">
+          <div className="mt-8 flex justify-center space-x-8 text-sm bg-green-50 p-4 rounded-lg flex-wrap">
             <div className="flex items-center space-x-1">
               <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
               <span>Top Eco Seller – Alex (500+ trades)</span>
@@ -96,11 +96,11 @@ export default function Home() {
             {filteredListings.map((listing) => (
               <div key={listing.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
-                  <span className="text-4xl">🧱</span> {/* Placeholder image - replace with real uploads later */}
+                  <span className="text-4xl">🧱</span> {/* Placeholder for images */}
                 </div>
                 <div className="p-6">
                   <h3 className="font-bold text-xl mb-2">{listing.title}</h3>
-                  <p className="text-gray-600 mb-3">{listing.description}</p>
+                  <p className="text-gray-600 mb-3 line-clamp-2">{listing.description}</p>
                   <p className="text-2xl font-bold text-[#228B22] mb-2">{listing.price}</p>
                   <p className="text-sm text-gray-500 mb-2">📍 {listing.location}</p>
                   <div className="flex items-center space-x-1 mb-3">
@@ -126,7 +126,7 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500 py-12">No listings yet—be the first to post! 🌱</p>
+          <p className="text-center text-gray-500 py-12 text-lg">No listings match your search—be the first to post one! 🌱</p>
         )}
       </main>
 
